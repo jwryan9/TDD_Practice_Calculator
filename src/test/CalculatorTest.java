@@ -17,5 +17,14 @@ public class CalculatorTest {
         expected = 3;
         actual = Calculator.Add("1,2");
         assertEquals(expected, actual);
+
+        expected = 15;
+        actual = Calculator.Add("1,2,3,4,5");
+        assertEquals(expected, actual);
+
+        expected = 55;
+        actual = Calculator.Add("1,2,3,4,5,6,7,8,9,10");
+        assertEquals(expected,actual);
     }
 }
+
