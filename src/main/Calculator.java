@@ -1,5 +1,12 @@
 public class Calculator {
     public static int Add(String numbers) {
-        return 0;
+        int result;
+        if (numbers.equals("")) {
+            result = 0;
+        } else {
+            result = -1;
+        }
+
+        return result;
     }
 }
