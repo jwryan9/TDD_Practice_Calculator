@@ -25,6 +25,10 @@ public class CalculatorTest {
         expected = 55;
         actual = Calculator.Add("1,2,3,4,5,6,7,8,9,10");
         assertEquals(expected,actual);
+
+        expected = 6;
+        actual = Calculator.Add("1\n,2,3");
+        assertEquals(expected,actual);
     }
 }
 
