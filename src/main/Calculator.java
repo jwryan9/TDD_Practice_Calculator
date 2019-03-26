@@ -7,16 +7,24 @@ public class Calculator {
         int result = 0;
 
         if (numbers.equals("")) {
-            result = 0;
+            return result;
         } else {
-            List<String> numbersStringList = Arrays.asList(numbers.split(","));
-            List<Integer> numbersIntList = new ArrayList<>();
+            List<Integer> numbersList = SplitStringList(numbers);
 
-            for (String s : numbersStringList) numbersIntList.add(Integer.valueOf(s));
-
-            for (Integer i : numbersIntList) result += i;
+            for (Integer i : numbersList) { result += i; }
         }
 
         return result;
+    }
+
+    private static List<Integer> SplitStringList(String numbers) {
+        List<String> numbersStringList = Arrays.asList(numbers.split(","));
+        List<Integer> numbersIntList = new ArrayList<>();
+
+        for (String s : numbersStringList) {
+            numbersIntList.add(Integer.valueOf(s));
+        }
+
+        return numbersIntList;
     }
 }
