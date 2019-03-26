@@ -18,11 +18,13 @@ public class Calculator {
     }
 
     private static List<Integer> SplitStringList(String numbers) {
-        List<String> numbersStringList = Arrays.asList(numbers.split(","));
+        List<String> numbersStringList = Arrays.asList(numbers.split("[,\n]"));
         List<Integer> numbersIntList = new ArrayList<>();
 
         for (String s : numbersStringList) {
-            numbersIntList.add(Integer.valueOf(s));
+            if (!s.equals("")) {
+                numbersIntList.add(Integer.valueOf(s));
+            }
         }
 
         return numbersIntList;
