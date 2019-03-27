@@ -46,7 +46,7 @@ public class CalculatorTest {
         assertEquals(expected, actual);
 
         expected = 6;
-        actual = Calculator.Add("//.\n1.2");
+        actual = Calculator.Add("//.\n1.2.3");
         assertEquals(expected, actual);
     }
 }
