@@ -1,13 +1,17 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class CalculatorTest {
 
+    private static int expected;
+    private static int actual;
+
     @Test
     public void add() {
-        int expected = 0;
-        int actual = Calculator.Add("");
+        expected = 0;
+        actual = Calculator.Add("");
         assertEquals(expected, actual);
 
         expected = 1;
