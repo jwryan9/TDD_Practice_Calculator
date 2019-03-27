@@ -20,26 +20,26 @@ public class Calculator {
     }
 
     private static List<Integer> SplitStringList(String numbers) throws Exception {
-        String negatives = "";
+        String listOfNegatives = "";
         List<String> numbersStringList = Arrays.asList(numbers.split(selectDelimiter(numbers)));
-
         List<Integer> numbersIntList = new ArrayList<>();
 
         for (String s : numbersStringList) {
             if (!"".equals(s)) {
-                numbersIntList.add(Integer.valueOf(s));
                 if (Integer.valueOf(s) < 0) {
-                    if ("".equals(negatives)) {
-                        negatives += s;
+                    if ("".equals(listOfNegatives)) {
+                        listOfNegatives += s;
                     } else {
-                        negatives = negatives + "," + s;
+                        listOfNegatives = listOfNegatives + "," + s;
                     }
+                } else {
+                    numbersIntList.add(Integer.valueOf(s));
                 }
             }
         }
 
-        if (!"".equals(negatives)) {
-            throw new Exception("negatives not allowed. " + negatives);
+        if (!"".equals(listOfNegatives)) {
+            throw new Exception("negatives not allowed. " + listOfNegatives);
         }
 
         return numbersIntList;
