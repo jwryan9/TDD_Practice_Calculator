@@ -21,8 +21,7 @@ public class Calculator {
 
     private static List<Integer> SplitStringList(String numbers) throws Exception {
         String negatives = "";
-        String delimiterRegex = selectDelimiter(numbers);
-        List<String> numbersStringList = Arrays.asList(numbers.split(delimiterRegex));
+        List<String> numbersStringList = Arrays.asList(numbers.split(selectDelimiter(numbers)));
 
         List<Integer> numbersIntList = new ArrayList<>();
 
