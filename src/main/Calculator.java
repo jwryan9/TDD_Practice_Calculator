@@ -21,7 +21,7 @@ public class Calculator {
         List<String> numbersStringList;
         List<String> delimiterSplit = Arrays.asList(numbers.split("//"));
         if (delimiterSplit.size() > 1) {
-            String delimiter = delimiterSplit.get(1).substring(0,1);
+            String delimiter = selectDelimiter(numbers);
             numbersStringList = Arrays.asList(delimiterSplit.get(1).split("[" + delimiter + "\n]"));
         } else {
             numbersStringList = Arrays.asList(numbers.split("[,\n]"));
@@ -35,5 +35,15 @@ public class Calculator {
         }
 
         return numbersIntList;
+    }
+
+    private static String selectDelimiter(String numbers) {
+        String result = ",";
+        List<String> delimiterSplit = Arrays.asList(numbers.split("//"));
+        if (delimiterSplit.size() > 1) {
+            result = delimiterSplit.get(1).substring(0,1);
+        }
+
+        return result;
     }
 }
