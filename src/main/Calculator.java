@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Calculator {
-    public static int Add(String numbers) {
+    public static int Add(String numbers) throws Exception {
         int result = 0;
 
         if (numbers.equals("")) {
@@ -11,13 +11,16 @@ public class Calculator {
         } else {
             List<Integer> numbersList = SplitStringList(numbers);
 
-            for (Integer i : numbersList) { result += i; }
+            for (Integer i : numbersList) {
+                result += i;
+            }
         }
 
         return result;
     }
 
-    private static List<Integer> SplitStringList(String numbers) {
+    private static List<Integer> SplitStringList(String numbers) throws Exception {
+        String negatives = "";
         String delimiterRegex = selectDelimiter(numbers);
         List<String> numbersStringList = Arrays.asList(numbers.split(delimiterRegex));
 
@@ -26,7 +29,18 @@ public class Calculator {
         for (String s : numbersStringList) {
             if (!s.equals("")) {
                 numbersIntList.add(Integer.valueOf(s));
+                if (Integer.valueOf(s) < 0) {
+                    if ("".equals(negatives)) {
+                        negatives += s;
+                    } else {
+                        negatives = negatives + "," + s;
+                    }
+                }
             }
+        }
+
+        if (!"".equals(negatives)) {
+            throw new Exception("negatives not allowed. " + negatives);
         }
 
         return numbersIntList;
