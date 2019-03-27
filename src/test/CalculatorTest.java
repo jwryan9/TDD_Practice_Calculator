@@ -27,8 +27,24 @@ public class CalculatorTest {
         assertEquals(expected,actual);
 
         expected = 6;
-        actual = Calculator.Add("1\n,2,3");
+        actual = Calculator.Add("1\n2,3");
         assertEquals(expected,actual);
+
+        expected = 3;
+        actual = Calculator.Add("1\n\n2");
+        assertEquals(expected, actual);
+
+        expected = 15;
+        actual = Calculator.Add("1,2\n3\n\n\n4,5");
+        assertEquals(expected, actual);
+
+        expected = 3;
+        actual = Calculator.Add("//;\n1;2");
+        assertEquals(expected, actual);
+
+        expected = 6;
+        actual = Calculator.Add("//.\n1.2");
+        assertEquals(expected, actual);
     }
 }
 
