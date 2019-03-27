@@ -1,3 +1,4 @@
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,29 +21,37 @@ public class Calculator {
     }
 
     private static List<Integer> SplitStringList(String numbers) throws Exception {
-        String listOfNegatives = "";
         List<String> numbersStringList = Arrays.asList(numbers.split(selectDelimiter(numbers)));
         List<Integer> numbersIntList = new ArrayList<>();
 
+        checkForNegatives(numbersStringList);
+
+        for (String s : numbersStringList) {
+            if (!"".equals(s)) {
+                numbersIntList.add(Integer.valueOf(s));
+            }
+        }
+
+        return numbersIntList;
+    }
+
+    private static void checkForNegatives(List<String> numbersStringList) throws Exception {
+        String listOfNegatives = "";
         for (String s : numbersStringList) {
             if (!"".equals(s)) {
                 if (Integer.valueOf(s) < 0) {
                     if ("".equals(listOfNegatives)) {
                         listOfNegatives += s;
                     } else {
-                        listOfNegatives = listOfNegatives + "," + s;
+                        listOfNegatives += "," + s;
                     }
-                } else {
-                    numbersIntList.add(Integer.valueOf(s));
                 }
             }
         }
 
         if (!"".equals(listOfNegatives)) {
-            throw new Exception("negatives not allowed. " + listOfNegatives);
+            throw new Exception(MessageFormat.format("negatives not allowed. {0}", listOfNegatives));
         }
-
-        return numbersIntList;
     }
 
     private static String selectDelimiter(String numbers) {
