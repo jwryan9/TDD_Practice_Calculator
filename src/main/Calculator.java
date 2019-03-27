@@ -13,7 +13,9 @@ public class Calculator {
             List<Integer> numbersList = SplitStringList(numbers);
 
             for (Integer i : numbersList) {
-                result += i;
+                if (i <= 1000) {
+                    result += i;
+                }
             }
         }
 
