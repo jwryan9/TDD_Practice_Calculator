@@ -77,5 +77,16 @@ public class CalculatorTest {
         exception.expectMessage("negatives not allowed. -1,-2,-3");
         Calculator.Add("-1,4,-2,-3,10");
     }
+
+    @Test
+    public void addBigNumbersTest() throws Exception {
+        expected = 2;
+        actual = Calculator.Add("2,1001");
+        assertEquals(expected, actual);
+
+        expected = 3;
+        actual = Calculator.Add("1,2,1000000");
+        assertEquals(expected, actual);
+    }
 }
 
