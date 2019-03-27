@@ -18,7 +18,14 @@ public class Calculator {
     }
 
     private static List<Integer> SplitStringList(String numbers) {
-        List<String> numbersStringList = Arrays.asList(numbers.split("[,\n]"));
+        List<String> numbersStringList;
+        List<String> delimiterSplit = Arrays.asList(numbers.split("//"));
+        if (delimiterSplit.size() > 1) {
+            String delimiter = delimiterSplit.get(1).substring(0,1);
+            numbersStringList = Arrays.asList(delimiterSplit.get(1).split("[" + delimiter + "\n]"));
+        } else {
+            numbersStringList = Arrays.asList(numbers.split("[,\n]"));
+        }
         List<Integer> numbersIntList = new ArrayList<>();
 
         for (String s : numbersStringList) {
