@@ -65,10 +65,17 @@ public class CalculatorTest {
     }
 
     @Test
-    public void addNegativeNumbersTest() throws Exception {
+    public void addNegativeNumbersTest1() throws Exception {
         exception.expect(Exception.class);
         exception.expectMessage("negatives not allowed. -1");
         Calculator.Add("-1");
+    }
+
+    @Test
+    public void addNegativeNumbersTest2() throws Exception {
+        exception.expect(Exception.class);
+        exception.expectMessage("negatives not allowed. -1,-2,-3");
+        Calculator.Add("-1,4,-2,-3,10");
     }
 }
 
