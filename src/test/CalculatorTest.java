@@ -1,4 +1,6 @@
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
@@ -7,8 +9,11 @@ public class CalculatorTest {
     private static int expected;
     private static int actual;
 
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
+
     @Test
-    public void addOneTwoOrThreeTest() {
+    public void addOneTwoOrThreeTest() throws Exception {
         expected = 0;
         actual = Calculator.Add("");
         assertEquals(expected, actual);
@@ -23,7 +28,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void addManyTest() {
+    public void addManyTest() throws Exception {
         expected = 15;
         actual = Calculator.Add("1,2,3,4,5");
         assertEquals(expected, actual);
@@ -34,7 +39,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void addNewLineTest() {
+    public void addNewLineTest() throws Exception {
         expected = 6;
         actual = Calculator.Add("1\n2,3");
         assertEquals(expected,actual);
@@ -49,7 +54,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void addCustomDelimiterTest() {
+    public void addCustomDelimiterTest() throws Exception {
         expected = 3;
         actual = Calculator.Add("//;\n1;2");
         assertEquals(expected, actual);
