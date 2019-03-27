@@ -34,7 +34,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void add() {
+    public void addNewLineTest() {
         expected = 6;
         actual = Calculator.Add("1\n2,3");
         assertEquals(expected,actual);
@@ -46,7 +46,10 @@ public class CalculatorTest {
         expected = 15;
         actual = Calculator.Add("1,2\n3\n\n\n4,5");
         assertEquals(expected, actual);
+    }
 
+    @Test
+    public void addCustomDelimiterTest() {
         expected = 3;
         actual = Calculator.Add("//;\n1;2");
         assertEquals(expected, actual);
