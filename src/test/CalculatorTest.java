@@ -7,7 +7,8 @@ public class CalculatorTest {
     private static int expected;
     private static int actual;
 
-    @Test public void addOneTwoOrThreeTest() {
+    @Test
+    public void addOneTwoOrThreeTest() {
         expected = 0;
         actual = Calculator.Add("");
         assertEquals(expected, actual);
@@ -22,7 +23,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void add() {
+    public void addManyTest() {
         expected = 15;
         actual = Calculator.Add("1,2,3,4,5");
         assertEquals(expected, actual);
@@ -30,7 +31,10 @@ public class CalculatorTest {
         expected = 55;
         actual = Calculator.Add("1,2,3,4,5,6,7,8,9,10");
         assertEquals(expected,actual);
+    }
 
+    @Test
+    public void add() {
         expected = 6;
         actual = Calculator.Add("1\n2,3");
         assertEquals(expected,actual);
