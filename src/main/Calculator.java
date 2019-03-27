@@ -6,7 +6,7 @@ public class Calculator {
     public static int Add(String numbers) throws Exception {
         int result = 0;
 
-        if (numbers.equals("")) {
+        if ("".equals(numbers)) {
             return result;
         } else {
             List<Integer> numbersList = SplitStringList(numbers);
@@ -27,7 +27,7 @@ public class Calculator {
         List<Integer> numbersIntList = new ArrayList<>();
 
         for (String s : numbersStringList) {
-            if (!s.equals("")) {
+            if (!"".equals(s)) {
                 numbersIntList.add(Integer.valueOf(s));
                 if (Integer.valueOf(s) < 0) {
                     if ("".equals(negatives)) {
