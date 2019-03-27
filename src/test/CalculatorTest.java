@@ -63,5 +63,12 @@ public class CalculatorTest {
         actual = Calculator.Add("//.\n1.2.3");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void addNegativeNumbersTest() throws Exception {
+        exception.expect(Exception.class);
+        exception.expectMessage("negatives not allowed. -1");
+        Calculator.Add("-1");
+    }
 }
 
