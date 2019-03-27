@@ -10,26 +10,24 @@ public class Calculator {
         if ("".equals(numbers)) {
             return result;
         } else {
-            List<Integer> numbersList = SplitStringList(numbers);
+            List<Integer> numbersList = SplitStringList(numbers, 1000);
 
             for (Integer i : numbersList) {
-                if (i <= 1000) {
-                    result += i;
-                }
+                result += i;
             }
         }
 
         return result;
     }
 
-    private static List<Integer> SplitStringList(String numbers) throws Exception {
+    private static List<Integer> SplitStringList(String numbers, int maxNumeral) throws Exception {
         List<String> numbersStringList = Arrays.asList(numbers.split(selectDelimiter(numbers)));
         List<Integer> numbersIntList = new ArrayList<>();
 
         checkForNegatives(numbersStringList);
 
         for (String s : numbersStringList) {
-            if (!"".equals(s)) {
+            if (!"".equals(s) && Integer.valueOf(s) <= maxNumeral) {
                 numbersIntList.add(Integer.valueOf(s));
             }
         }
