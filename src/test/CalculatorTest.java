@@ -57,5 +57,11 @@ public class CalculatorTest {
         assertEquals(2, Calculator.Add("2,1001"));
         assertEquals(3, Calculator.Add("1,2,1000000"));
     }
+
+    @Test
+    public void addMultiCharDelimiter() throws Exception {
+        assertEquals(6, Calculator.Add("//[***]\n1***2***3"));
+        assertEquals(10, Calculator.Add("//[,,]\n1,,2,,3,,4"));
+    }
 }
 
