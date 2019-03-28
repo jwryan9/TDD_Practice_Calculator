@@ -6,9 +6,6 @@ import static org.junit.Assert.*;
 
 public class CalculatorTest {
 
-    private static int expected;
-    private static int actual;
-
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
