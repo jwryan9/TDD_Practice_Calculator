@@ -14,54 +14,28 @@ public class CalculatorTest {
 
     @Test
     public void addOneTwoOrThreeTest() throws Exception {
-        expected = 0;
-        actual = Calculator.Add("");
-        assertEquals(expected, actual);
-
-        expected = 1;
-        actual = Calculator.Add("1");
-        assertEquals(expected, actual);
-
-        expected = 3;
-        actual = Calculator.Add("1,2");
-        assertEquals(expected, actual);
+        assertEquals(0, Calculator.Add(""));
+        assertEquals(1, Calculator.Add("1"));
+        assertEquals(3, Calculator.Add("1,2"));
     }
 
     @Test
     public void addManyTest() throws Exception {
-        expected = 15;
-        actual = Calculator.Add("1,2,3,4,5");
-        assertEquals(expected, actual);
-
-        expected = 55;
-        actual = Calculator.Add("1,2,3,4,5,6,7,8,9,10");
-        assertEquals(expected,actual);
+        assertEquals(15, Calculator.Add("1,2,3,4,5"));
+        assertEquals(55, Calculator.Add("1,2,3,4,5,6,7,8,9,10"));
     }
 
     @Test
     public void addNewLineTest() throws Exception {
-        expected = 6;
-        actual = Calculator.Add("1\n2,3");
-        assertEquals(expected,actual);
-
-        expected = 3;
-        actual = Calculator.Add("1\n\n2");
-        assertEquals(expected, actual);
-
-        expected = 15;
-        actual = Calculator.Add("1,2\n3\n\n\n4,5");
-        assertEquals(expected, actual);
+        assertEquals(6, Calculator.Add("1\n2,3"));
+        assertEquals(3, Calculator.Add("1\n\n2"));
+        assertEquals(15, Calculator.Add("1,2\n3\n\n\n4,5"));
     }
 
     @Test
     public void addCustomDelimiterTest() throws Exception {
-        expected = 3;
-        actual = Calculator.Add("//;\n1;2");
-        assertEquals(expected, actual);
-
-        expected = 6;
-        actual = Calculator.Add("//.\n1.2.3");
-        assertEquals(expected, actual);
+        assertEquals(3, Calculator.Add("//;\n1;2"));
+        assertEquals(6, Calculator.Add("//.\n1.2.3"));
     }
 
     @Test
@@ -80,13 +54,8 @@ public class CalculatorTest {
 
     @Test
     public void addBigNumbersTest() throws Exception {
-        expected = 2;
-        actual = Calculator.Add("2,1001");
-        assertEquals(expected, actual);
-
-        expected = 3;
-        actual = Calculator.Add("1,2,1000000");
-        assertEquals(expected, actual);
+        assertEquals(2, Calculator.Add("2,1001"));
+        assertEquals(3, Calculator.Add("1,2,1000000"));
     }
 }
 
